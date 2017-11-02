@@ -16,7 +16,7 @@ public final String CONTEXT = "message";
 	
 	@RequestMapping(value = CONTEXT + "/{vin}/", method = RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<Boolean> getAllCommands(@PathVariable("vin") String vin, @RequestBody Message message);
+	public ResponseEntity<Boolean> sendCommand(@PathVariable("vin") String vin, @RequestBody Message message);
 	
 	@RequestMapping(value = CONTEXT + "/{vin}/pending", method = RequestMethod.GET)
 	@ResponseBody
