@@ -4,7 +4,7 @@
 
 	<groupId>net.mkengineering.studies.cms</groupId>
 	<artifactId>communication-message-service-app</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>communication-message-service-app</name>
@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>net.mkengineering.studies.cms</groupId>
 			<artifactId>communication-message-service-api</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -114,9 +114,4 @@
 			<url>http://jupiter:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-
-
-  <scm>
-    <tag>communication-message-service-0.0.1</tag>
-  </scm>
 </project>
