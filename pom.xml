@@ -1,28 +1,32 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>net.mkengineering.studies.cms</groupId>
-  <artifactId>communication-message-service</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>Communication service</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.mkengineering.studies.cms</groupId>
+	<artifactId>communication-message-service</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Communication service</name>
 
 	<scm>
-	    <connection>scm:git:https://github.com/ryandel13/communication-message-service</connection>
-	    <developerConnection>scm:git:https://github.com/ryandel13/communication-message-service</developerConnection>
-	    <url>https://github.com/ryandel13/communication-message-service</url>
-    <tag>HEAD</tag>
-  </scm>
-	
-<properties>
+		<connection>scm:git:https://github.com/ryandel13/communication-message-service</connection>
+		<developerConnection>scm:git:https://github.com/ryandel13/communication-message-service</developerConnection>
+		<url>https://github.com/ryandel13/communication-message-service</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<spring-cloud.version>Dalston.SR3</spring-cloud.version>
 	</properties>
 
-    <dependencyManagement>
-	  <dependencies>
-		<dependency>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-actuator</artifactId>
 				<version>1.5.7.RELEASE</version>
@@ -60,31 +64,59 @@
 				<version>5.1.43</version>
 			</dependency>
 			<dependency>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-dependencies</artifactId>
-					<version>${spring-cloud.version}</version>
-					<type>pom</type>
-					<scope>import</scope>
-				</dependency>
-	  </dependencies>
-  </dependencyManagement>
-  
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>net.mkengineering.studies.cms</groupId>
+				<artifactId>communication-message-service-api</artifactId>
+				<version>0.0.2-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<sourcepath>main/java</sourcepath>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
 	<distributionManagement>
-	    <repository>
-		    <uniqueVersion>false</uniqueVersion>
-		<id>nexus2</id>
-		<url>http://jupiter:8081/nexus/content/repositories/releases/</url>
-	    </repository>
-		
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus2</id>
+			<url>http://jupiter:8081/nexus/content/repositories/releases/</url>
+		</repository>
+
 		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>snapshot</id>
 			<url>http://jupiter:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	
-    <modules>
-  	<module>communication-message-service-api</module>
-  	<module>communication-message-service-app</module>
-  </modules>
+
+	<modules>
+		<module>communication-message-service-api</module>
+		<module>communication-message-service-app</module>
+	</modules>
 </project>
